@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khian</title>
+    <style>
+
+        /* Circles Section */
+        .circles-container {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .circle-item {
+            text-align: center;
+        }
+
+        .circle-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 4px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .circle-heading {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .circle-subheading {
+            color: #666;
+            margin-top: 0.5rem;
+            max-width: 250px;
+            line-height: 1.4;
+        }
+
+        .dark-mode .circle-heading {
+            color: #e0e0e0;
+        }
+
+        .dark-mode .circle-subheading {
+            color: #b0b0b0;
+        }
+
+        @media (max-width: 768px) {
+            .circles-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1>khian</h1>
+            <nav class="nav-links">
+                <a href="#home">This</a>
+                <a href="#tutorials">made</a>
+                <a href="#examples">by</a>
+                <a href="#community">khian and rj</a>
+            </nav>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>G10 Courage</h1>
+            <p>Test website</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Circles Section -->
+        <div class="circles-container">
+            <div class="circle-item">
+                <div class="circle-img">
+                    <img src="c:\Users\Administrator\Downloads\blank-2022542_1280.webp" alt="C++ Basics">
+                </div>
+                <h3 class="circle-heading">Khian Gardiola</h3>
+                <p class="circle-subheading">mathematician, web developer and designer, article writer, poem writer, chess player, basketball player, Gamer and professional racist</p>
+            </div>
+
+            <div class="circle-item">
+                <div class="circle-img">
+                    <img src="c:\Users\Administrator\Downloads\boy-2022549_640.webp" alt="Advanced C++">
+                </div>
+                <h3 class="circle-heading">Rj Marquita</h3>
+                <p class="circle-subheading">mwhehe web developwr, back end developer, chess player and mathematician</p>
+            </div>
+        </div>
+
+        <!-- Keep other sections as needed -->
+    </main>
+
+    <button id="theme-toggle" style="position: fixed; bottom: 20px; right: 20px;">🌓</button>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Add hover effects to circles
+        document.querySelectorAll('.circle-img').forEach(circle => {
+            circle.addEventListener('mouseover', () => {
+                circle.style.transform = 'scale(1.05)';
+            });
+            
+            circle.addEventListener('mouseout', () => {
+                circle.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
